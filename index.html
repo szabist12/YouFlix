@@ -1,0 +1,169 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouFlix</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <div class="slider" id="slider">
+      <ul>
+        <li>Home</li>
+        <li>Trending</li>
+        <li>Subscriptions</li>
+        <li>Library</li>
+        <li>History</li>
+        <li><a href="/login.html">Login</a></li>
+      </ul>
+    </div>
+
+    <div class="navbar">
+      <div class="menu-btn" id="menu-btn">☰</div>
+      <div class="logo">
+        <img class="img" src="/images/logo.png" alt="YouFlix" />
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="speech-icon"><i class="fa-solid fa-microphone"></i></div>
+      </div>
+      <div class="user-avatar">
+        <img src="/images/person.png" alt="User Avatar" id="user-avatar-img" />
+        <div class="dropdown-menu" id="dropdown-menu">
+          <ul>
+            <li>
+              <a href="list.html"
+                ><i class="fa-solid fa-user"></i>Upload Video</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="video-grid">
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 1</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <a href="/video.html" class="video-card-link">
+        <div class="video-card">
+          <img
+            src="https://via.placeholder.com/300x180"
+            alt="Video Thumbnail"
+          />
+          <div class="info">
+            <h3>Video Title 2</h3>
+            <p>Channel Name</p>
+            <p>10K views • 2 days ago</p>
+          </div>
+        </div>
+      </a>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 3</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 4</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 5</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 6</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 7</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 8</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 9</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 10</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 11</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+        <div class="info">
+          <h3>Video Title 12</h3>
+          <p>Channel Name</p>
+          <p>10K views • 2 days ago</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="pagination">
+      <a href="#">&laquo; Prev</a>
+      <a href="#" class="active">1</a>
+      <a href="#">2</a>
+      <a href="#">Next &raquo;</a>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

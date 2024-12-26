@@ -1,0 +1,337 @@
+/*style.css*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .menu-btn {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 40px;
+}
+
+.navbar .logo {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Search Bar */
+.navbar .search-bar {
+  display: flex;
+  flex-grow: 1;
+  max-width: 600px;
+  margin-left: 20%;
+  overflow: hidden;
+}
+
+.navbar .search-bar input {
+  width: 100%;
+  padding: 12px 16px; /* Increased padding for height */
+  border: 1px solid #ccc;
+  border-right: none;
+  outline: none;
+  border-radius: 50px 0 0 50px; /* Rounded corners for the input */
+  font-size: 16px; /* Increase font size for better appearance */
+}
+
+.navbar .search-bar button {
+  padding: 12px 20px; /* Increased padding for height */
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 0 50px 50px 0; /* Rounded corners for the button */
+  font-size: 16px; /* Increase font size for better appearance */
+}
+
+.navbar .search-bar .speech-icon {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 22px; /* Increased icon size */
+  background-image: linear-gradient(black, blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Vertically center the icon */
+  justify-content: center;
+  height: 100%; /* Make the icon take up the full height of the search bar */
+}
+
+.navbar .user-avatar {
+  margin-left: auto;
+  position: relative;
+}
+
+.navbar .user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 150px;
+  z-index: 1000;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hide dropdown when not active */
+.dropdown-menu.active {
+  display: block;
+}
+
+/* Avatar Styling */
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Slider */
+.slider {
+  position: fixed;
+  top: 65px;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: left 0.3s ease-in-out;
+}
+
+.slider.open {
+  left: 0;
+}
+
+.slider ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.slider ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.slider ul li:hover {
+  background-color: #f9f9f9;
+}
+
+/* Video Grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.video-card-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Keeps the text color unchanged */
+  display: block; /* Makes the link cover the entire div */
+}
+
+.video-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.video-card:hover {
+  transform: translateY(-5px); /* Adds a hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+}
+
+.video-card img {
+  width: 100%;
+  display: block;
+}
+
+.video-card .info {
+  padding: 10px;
+}
+
+.video-card .info h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.video-card .info p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #555;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+.pagination a.active {
+  background-color: #ff0000;
+  color: white;
+  border-color: #ff0000;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+  /* Adjust search bar for medium screens */
+  .navbar .search-bar {
+    max-width: 400px; /* Reduce width on tablets */
+    margin-left: 10%; /* Center it more */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navbar adjustments */
+  .navbar {
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    padding: 10px;
+  }
+
+  .navbar .menu-btn {
+    margin-right: 20px; /* Reduce spacing */
+  }
+
+  .navbar .logo {
+    flex: 0 0 auto; /* Prevent the logo from shrinking */
+    margin-right: 10px; /* Add spacing to separate from search bar */
+  }
+
+  .navbar .search-bar {
+    flex-grow: 1; /* Allow the search bar to take remaining space */
+    margin: 10px 0; /* Add spacing for better flow */
+    max-width: calc(100% - 60px); /* Prevent overlap by leaving space for the logo */
+  }
+
+  .navbar .user-avatar {
+    margin-left: 10px; /* Adjust spacing */
+  }
+
+  /* Slider adjustments */
+  .slider {
+    top: 55px; /* Adjust for smaller navbar height */
+    width: 200px; /* Reduce width */
+  }
+
+  /* Video grid adjustments */
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Navbar for very small screens */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .menu-btn {
+    margin-right: 0;
+    font-size: 20px; /* Smaller font size */
+  }
+
+  .navbar .search-bar {
+    flex-grow: 1;
+    margin: 10px 0; /* Add spacing */
+    width: 100%; /* Full width */
+  }
+
+  .navbar .user-avatar {
+    margin: 10px 0 0 auto; /* Place avatar at the end */
+  }
+
+  /* Slider adjustments */
+  .slider {
+    width: 180px; /* Further reduce width */
+  }
+
+  /* Video grid adjustments */
+  .video-grid {
+    grid-template-columns: 1fr; /* 1 item per row */
+  }
+
+  /* Pagination adjustments */
+  .pagination a {
+    padding: 8px 12px; /* Smaller padding */
+    font-size: 14px; /* Smaller text */
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Channel Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/list.css" />
+  </head>
+  <body>
+    <div class="slider" id="slider">
+      <ul>
+        <li>Home</li>
+        <li>Trending</li>
+        <li>Subscriptions</li>
+        <li>Library</li>
+        <li>History</li>
+        <li><a href="/login.html">Login</a></li>
+      </ul>
+    </div>
+    <div class="navbar">
+      <div class="menu-btn" id="menu-btn">☰</div>
+      <div class="logo">
+        <img class="img" src="/images/logo.png" alt="YouFlix" />
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="speech-icon"><i class="fa-solid fa-microphone"></i></div>
+      </div>
+      <div class="user-avatar">
+        <img src="/images/person.png" alt="User Avatar" id="user-avatar-img" />
+        <div class="dropdown-menu" id="dropdown-menu">
+          <ul>
+            <li>
+              <a href="login.html"><i class="fa-solid fa-user"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="header">
+        <div class="channel-info">
+          <div class="avatar">A</div>
+          <div class="details">
+            <h1 class="channel-title">Your channel</h1>
+            <p class="channel-subtitle">Songs Prammer</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <nav class="nav-links">
+          <a href="#">Inspiration</a>
+          <a href="#">Videos</a>
+          <a href="#">Shorts</a>
+          <a href="#">Live</a>
+          <a href="#">Posts</a>
+          <a href="#">Playlists</a>
+          <a href="#">Podcasts</a>
+          <a href="#">Promotions</a>
+        </nav>
+      </div>
+
+      <div class="content">
+        <img
+          src="https://openui.fly.dev/openui/150x150.svg?text=📹"
+          alt="No content available"
+        />
+        <h2>No content available</h2>
+        <a href="/upload.html">
+          <button class="upload-button">Upload videos</button>
+        </a>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+    <script src="/js/list.js"></script>
+  </body>
+</html>

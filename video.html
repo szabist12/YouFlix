@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Viewer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/video.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="left-section">
+        <div class="video-section">
+          <video id="videoPlayer" controls>
+            <source src="your-video-file.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="video-details">
+          <h1 class="video-title">
+            MERN Stack is Dead? (the right full-stack path for 2025)
+          </h1>
+          <div class="channel-info">
+            <div class="details">
+              <img
+                src="https://via.placeholder.com/40"
+                alt="Channel Logo"
+                class="channel-logo"
+              />
+              <div>
+                <h3 class="channel-name">Ali</h3>
+                <button class="subscribe-btn">Subscribe</button>
+              </div>
+            </div>
+            <div class="video-actions">
+              <button><i class="fa-solid fa-thumbs-up"></i> 5.7K</button>
+              <button><i class="fa-solid fa-share"></i> Share</button>
+              <button><i class="fa-solid fa-download"></i> Download</button>
+              <button>
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+          </div>
+          <div class="video-meta">
+            <p>182K views • 1 month ago</p>
+            <div class="hashtags">
+              #JavascriptInterviewQuestions #Javascript #AkshaySaini
+            </div>
+          </div>
+          <p class="video-description">
+            Is the MERN Stack (MongoDB, Express.js, React, Node.js) really dead?
+            🤔 In this video, we dive deep into the truth behind the rumors
+            about the MERN stack's decline. We'll explore:
+          </p>
+        </div>
+
+        <div class="comments-section">
+          <h3>454 Comments</h3>
+          <div class="comment-box">
+            <img
+              src="https://via.placeholder.com/40"
+              alt="User Avatar"
+              class="user-avatar"
+            />
+            <div class="comment-input-container">
+              <input
+                type="text"
+                placeholder="Add a comment..."
+                class="comment-input"
+                id="commentInput"
+              />
+              <div class="comment-actions" id="commentActions">
+                <button class="emoji-btn">
+                  <i class="fa-regular fa-face-smile"></i>
+                </button>
+                <div class="button">
+                  <button class="cancel-btn">Cancel</button>
+                  <button class="post-btn">Comment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <h3>Recommended Videos</h3>
+        <div class="recommended-videos">
+          <div class="recommended-card">
+            <img src="https://via.placeholder.com/150x80" alt="Thumbnail" />
+            <div class="info">
+              <h4>Video Title 1</h4>
+              <p>Channel Name</p>
+              <p>10K views</p>
+            </div>
+          </div>
+          <div class="recommended-card">
+            <img src="https://via.placeholder.com/150x80" alt="Thumbnail" />
+            <div class="info">
+              <h4>Video Title 2</h4>
+              <p>Channel Name</p>
+              <p>20K views</p>
+            </div>
+          </div>
+          <div class="recommended-card">
+            <img src="https://via.placeholder.com/150x80" alt="Thumbnail" />
+            <div class="info">
+              <h4>Video Title 3</h4>
+              <p>Channel Name</p>
+              <p>15K views</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
