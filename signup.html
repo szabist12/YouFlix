@@ -8,21 +8,23 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="css/signup.css" />
   </head>
   <body>
     <div class="login-container">
       <div class="logo">
-        <img class="img" src="/images/logo.png" alt="YouFlix" />
+        <img class="img" src="images/logo.png" alt="YouFlix" />
       </div>
 
-      <form action="#">
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
+      <form id="signup-form">
+        <input type="text" id="username" placeholder="UserName" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
         <button type="submit" class="login-btn">Sign Up</button>
       </form>
 
-      <a href="/login.html" class="create-account">Login account</a>
+      <a href="login.html" class="create-account">Login account</a>
     </div>
+    <script src="js/signup.js"></script>
   </body>
 </html>
