@@ -18,15 +18,13 @@
       <div class="left-section">
         <div class="video-section">
           <video id="videoPlayer" controls>
-            <source src="your-video-file.mp4" type="video/mp4" />
+            <source id="videoSource" src="" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div class="video-details">
-          <h1 class="video-title">
-            MERN Stack is Dead? (the right full-stack path for 2025)
-          </h1>
+          <h1 class="video-title" id="videoTitle">Loading...</h1>
           <div class="channel-info">
             <div class="details">
               <img
@@ -35,12 +33,12 @@
                 class="channel-logo"
               />
               <div>
-                <h3 class="channel-name">Ali</h3>
+                <h3 class="channel-name">Loading Channel...</h3>
                 <button class="subscribe-btn">Subscribe</button>
               </div>
             </div>
             <div class="video-actions">
-              <button><i class="fa-solid fa-thumbs-up"></i> 5.7K</button>
+              <button><i class="fa-solid fa-thumbs-up"></i> Like</button>
               <button><i class="fa-solid fa-share"></i> Share</button>
               <button><i class="fa-solid fa-download"></i> Download</button>
               <button>
@@ -48,21 +46,12 @@
               </button>
             </div>
           </div>
-          <div class="video-meta">
-            <p>182K views • 1 month ago</p>
-            <div class="hashtags">
-              #JavascriptInterviewQuestions #Javascript #AkshaySaini
-            </div>
-          </div>
-          <p class="video-description">
-            Is the MERN Stack (MongoDB, Express.js, React, Node.js) really dead?
-            🤔 In this video, we dive deep into the truth behind the rumors
-            about the MERN stack's decline. We'll explore:
-          </p>
+          <div class="video-meta" id="uploadDate">Loading...</div>
+          <p class="video-description" id="video-description">Loading...</p>
         </div>
 
         <div class="comments-section">
-          <h3>454 Comments</h3>
+          <h3>Comments</h3>
           <div class="comment-box">
             <img
               src="https://via.placeholder.com/40"
@@ -101,24 +90,10 @@
               <p>10K views</p>
             </div>
           </div>
-          <div class="recommended-card">
-            <img src="https://via.placeholder.com/150x80" alt="Thumbnail" />
-            <div class="info">
-              <h4>Video Title 2</h4>
-              <p>Channel Name</p>
-              <p>20K views</p>
-            </div>
-          </div>
-          <div class="recommended-card">
-            <img src="https://via.placeholder.com/150x80" alt="Thumbnail" />
-            <div class="info">
-              <h4>Video Title 3</h4>
-              <p>Channel Name</p>
-              <p>15K views</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+    <script src="js/video.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
