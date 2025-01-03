@@ -1,4 +1,3 @@
-
 const menuBtn = document.getElementById("menu-btn");
       const slider = document.getElementById("slider");
       let isMouseInside = false;
@@ -87,33 +86,30 @@ const menuBtn = document.getElementById("menu-btn");
 
 
       function timeAgo(timestamp) {
-        const date = new Date(timestamp);
-        const now = new Date();
+        const seconds = Math.floor((Date.now() - new Date(timestamp).getTime()) / 1000);
 
-        const diffInSeconds = Math.floor((now - date) / 1000);
-
-        const timeUnits = {
-            year: 31536000,
-            month: 2592000,
-            week: 604800,
-            day: 86400,
-            hour: 3600,
-            minute: 60,
-            second: 1
-        };
-
-        const pluralize = (count, unit) => {
-            return `${count} ${unit}${count === 1 ? '' : 's'} ago`;
-        };
-
-        for (const [unit, seconds] of Object.entries(timeUnits)) {
-            const value = Math.floor(diffInSeconds / seconds);
-
-            if (value >= 1) {
-                return pluralize(value, unit);
-            }
+        if (seconds >= 365 * 24 * 60 * 60) {
+            const count = Math.floor(seconds / (365 * 24 * 60 * 60));
+            return count === 1 ? `${count} year ago` : `${count} years ago`;
+        } else if (seconds >= 30 * 24 * 60 * 60) {
+            const count = Math.floor(seconds / (30 * 24 * 60 * 60));
+            return count === 1 ? `${count} month ago` : `${count} months ago`;
+        } else if (seconds >= 7 * 24 * 60 * 60) {
+            const count = Math.floor(seconds / (7 * 24 * 60 * 60));
+            return count === 1 ? `${count} week ago` : `${count} weeks ago`;
+        } else if (seconds >= 24 * 60 * 60) {
+            const count = Math.floor(seconds / (24 * 60 * 60));
+            return count === 1 ? `${count} day ago` : `${count} days ago`;
+        } else if (seconds >= 60 * 60) {
+            const count = Math.floor(seconds / (60 * 60));
+            return count === 1 ? `${count} hour ago` : `${count} hours ago`;
+        } else if (seconds >= 60) {
+            const count = Math.floor(seconds / 60);
+            return count === 1 ? `${count} minute ago` : `${count} minutes ago`;
+        } else {
+            return seconds === 1 ? `${seconds} second ago` : `${seconds} seconds ago`;
         }
-
-        return 'just now';
     }
+
+
 
