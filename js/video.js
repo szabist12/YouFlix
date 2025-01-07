@@ -26,6 +26,7 @@ const loadVideo = async () => {
       videoSource.src = video.filePath || "/path/to/default-video.mp4";
 
       videoPlayer.load();
+      videoPlayer.play();
     } else {
       throw new Error("Video data not found or invalid.");
     }
