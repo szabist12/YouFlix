@@ -86,6 +86,10 @@ video {
   color: #666;
 }
 
+.video-meta span {
+  display: inline-block;
+}
+
 .hashtags {
   margin-top: 5px;
   color: #007bff;

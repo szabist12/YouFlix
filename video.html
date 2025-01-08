@@ -38,13 +38,19 @@
               </div>
             </div>
             <div class="video-actions">
-              <button><i class="fa-solid fa-thumbs-up"></i> Like</button>
-              <button><i class="fa-solid fa-thumbs-down"></i>Dis-Like</button>
-              <button><i class="fa-solid fa-share"></i> Share</button>
-              <button><i class="fa-solid fa-download"></i> Download</button>
-              <button>
-                <i class="fa-solid fa-ellipsis"></i>
+              <button id="likeButton">
+                <i class="fa-solid fa-thumbs-up"></i
+                ><span id="likeCount">0</span> Likes
               </button>
+              <button id="dislikeButton">
+                <i class="fa-solid fa-thumbs-down"></i
+                ><span id="dislikeCount">0</span>Dis-Likes
+              </button>
+              <button><i class="fa-solid fa-share"></i> Share</button>
+              <button id="downloadButton">
+                <i class="fa-solid fa-download"></i> Download
+              </button>
+              <button><i class="fa-solid fa-ellipsis"></i></button>
             </div>
           </div>
           <div class="video-meta" id="uploadDate">Loading...</div>

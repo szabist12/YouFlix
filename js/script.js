@@ -31,6 +31,36 @@ window.addEventListener("click", (e) => {
   }
 });
 
+// Function to update the views via the API
+async function updateVideoViews(postId) {
+  try {
+    const response = await fetch(`http://localhost:3000/public/posts/${postId}/views`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      // Successfully updated the views
+      alert(`Views updated: ${data.views}`);
+      // Update the view count in the UI (assuming you have a view count element)
+      const viewCountElement = document.querySelector(`#views-count-${postId}`);
+      if (viewCountElement) {
+        viewCountElement.innerText = `Views: ${data.views}`;
+      }
+    } else {
+      // Handle error response from the API
+      alert(`Error: ${data.message}`);
+    }
+  } catch (error) {
+    console.error('Error updating views:', error);
+    alert('An error occurred while updating views.');
+  }
+}
+
 const loadVideos = async (page = 1) => {
   const videoGrid = document.querySelector(".video-grid");
   const loadingSpinner = document.getElementById("loading");
@@ -56,15 +86,22 @@ const loadVideos = async (page = 1) => {
           const videoLink = document.createElement("a");
           videoLink.href = `video.html?videoId=${video.id}`;
           videoLink.classList.add("video-card-link");
-
+          console.log(video.views);
+          const viewsCount = document.createElement('p');
+          viewsCount.id =`views-count-${video.id}`
           videoLink.innerHTML = `
             <img src="${video.thumbnail || 'https://via.placeholder.com/300x180'}" alt="Video Thumbnail" />
             <div class="info">
               <h3>${video.title}</h3>
               <p>${video.body || 'Unknown Channel'}</p>
-              <p>${video.views || '0'} views • ${timeAgoString || 'Unknown date'}</p>
+              <p id="views-count-${video.id}">${video.views || '0'} views • ${timeAgoString || 'Unknown date'}</p>
             </div>
           `;
+
+          // Add event listener to update views when clicked
+          videoCard.addEventListener("click", () => {
+            updateVideoViews(video.id); // Trigger view update
+          });
 
           videoCard.appendChild(videoLink);
           videoGrid.appendChild(videoCard);
