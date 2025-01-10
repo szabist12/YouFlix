@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouFlix</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="slider" id="slider">
+      <ul>
+        <li>Home</li>
+        <li>Trending</li>
+        <li>Subscriptions</li>
+        <li>Library</li>
+        <li>History</li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+
+    <div class="navbar">
+      <div class="menu-btn" id="menu-btn">☰</div>
+      <div class="logo">
+        <img class="img" src="images/logo.png" alt="YouFlix" />
+      </div>
+      <div class="search-bar">
+        <input type="search" placeholder="Search videos..." id="search-input" />
+        <button type="button" id="search-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <div class="speech-icon"><i class="fa-solid fa-microphone"></i></div>
+      </div>
+      <div class="user-avatar">
+        <img src="images/person.png" alt="User Avatar" id="user-avatar-img" />
+        <div class="dropdown-menu" id="dropdown-menu">
+          <ul>
+            <li>
+              <a href="login.html">
+                <i class="fa-solid fa-user"></i>Upload Video
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <main class="content">
+      <div class="video-grid"></div>
+      <div class="pagination"></div>
+    </main>
+
+    <div id="loading" class="loading-spinner" style="display: none">
+      <i class="fa-solid fa-spinner fa-spin"></i>
+    </div>
+    <script src="js/search.js"></script>
+  </body>
+</html>

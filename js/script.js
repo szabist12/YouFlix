@@ -61,16 +61,19 @@ async function updateVideoViews(postId) {
   }
 }
 
-const loadVideos = async (page = 1) => {
+const loadVideos = async (page = 1, keyword = '') => {
   const videoGrid = document.querySelector(".video-grid");
   const loadingSpinner = document.getElementById("loading");
   const url = new URL("http://localhost:3000/public/posts");
 
-  // Add page number to URL
+  // Add page number and keyword to URL
   url.searchParams.set("page", page);
+  if (keyword) {
+    url.searchParams.set("keyword", keyword);
+  }
 
   try {
-    loadingSpinner.style.display = "block";
+    loadingSpinner.style.display = "block";  // Ensure the spinner is visible
     videoGrid.innerHTML = ""; // Clear existing content
 
     const response = await fetch(url);
@@ -86,9 +89,8 @@ const loadVideos = async (page = 1) => {
           const videoLink = document.createElement("a");
           videoLink.href = `video.html?videoId=${video.id}`;
           videoLink.classList.add("video-card-link");
-          console.log(video.views);
           const viewsCount = document.createElement('p');
-          viewsCount.id =`views-count-${video.id}`
+          viewsCount.id = `views-count-${video.id}`;
           videoLink.innerHTML = `
             <img src="${video.thumbnail || 'https://via.placeholder.com/300x180'}" alt="Video Thumbnail" />
             <div class="info">
@@ -120,7 +122,7 @@ const loadVideos = async (page = 1) => {
               pageButton.classList.add("active");
             }
             pageButton.addEventListener("click", () => {
-              loadVideos(i); // Reload with the selected page
+              loadVideos(i, keyword); // Reload with the selected page
             });
             paginationContainer.appendChild(pageButton);
           }
@@ -136,12 +138,32 @@ const loadVideos = async (page = 1) => {
     console.error("Error loading videos:", error);
     videoGrid.innerHTML = `<p>An error occurred while loading videos.</p>`;
   } finally {
-    loadingSpinner.style.display = "none";
+    loadingSpinner.style.display = "none";  // Hide spinner after loading is finished
   }
 };
 
+// Function for handling search button click
 document.addEventListener("DOMContentLoaded", () => {
-  loadVideos();
+  loadVideos(); // Initial load with no search
+
+  const searchInput = document.getElementById("search-input");
+  const searchButton = document.getElementById("search-button");
+
+  // Search button click event
+  searchButton.addEventListener("click", () => {
+    const keyword = searchInput.value.trim();
+    if (keyword) {
+      // Redirect to the results page with the search keyword in the URL
+      window.location.href = `search.html?keyword=${encodeURIComponent(keyword)}`;
+    }
+  });
+
+  // Handle Enter key press for search
+  searchInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      searchButton.click();
+    }
+  });
 });
 
 function timeAgo(timestamp) {
