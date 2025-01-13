@@ -25,6 +25,12 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       console.log(result);
 
       if (response.ok) {
+
+        // Successful login, get the token from the response
+        const token = result.token; // This is the JWT token
+        // Store the token in localStorage or sessionStorage
+        localStorage.setItem('authToken', token);
+
         window.location.href = "list.html";
       } else {
         alert(result.message || "Login failed! Invalid credentials.");
