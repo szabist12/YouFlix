@@ -15,7 +15,7 @@ const uploadForm = document.getElementById("upload-form");
 uploadForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
+    const token = localStorage.getItem('authToken');
 
     if (!token) {
       console.error('No token found. User is not authenticated.');

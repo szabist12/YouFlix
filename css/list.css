@@ -12,7 +12,7 @@ body {
     margin: 20px;
     height: 100vh;
   }
-  
+
   /* Header Section */
   .header {
     display: flex;
@@ -20,12 +20,12 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
   }
-  
+
   .channel-info {
     display: flex;
     align-items: center;
   }
-  
+
   .avatar {
     background-color: #3b82f6;
     color: #fff;
@@ -38,68 +38,122 @@ body {
     font-size: 18px;
     font-weight: bold;
   }
-  
+
   .details {
     margin-left: 16px;
   }
-  
+
   .channel-title {
     font-size: 1.25rem;
     font-weight: bold;
     margin: 0;
   }
-  
+
   .channel-subtitle {
     font-size: 0.875rem;
     color: #6c757d;
     margin: 4px 0 0 0;
   }
-  
+
   /* Navigation Section */
   .nav {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
   }
-  
+
   .nav-links {
     display: flex;
     gap: 16px;
   }
-  
+
   .nav-links a {
     color: #6c757d;
     text-decoration: none;
     font-size: 0.875rem;
   }
-  
+
   .nav-links a:hover {
     color: #495057;
   }
-  
+
+  .posts-container{
+    display: flex;
+  }
+
   /* Content Section */
   .content {
-    flex-grow: 1;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin: 30px;
+    margin-top: 15px;
   }
-  
+
+/* Row and Buttons */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure it takes full width */
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.content-left {
+  flex: 1;
+  text-align: left;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.body {
+  font-size: 1rem;
+  color: #555;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
   .content img {
     width: 150px;
     height: 150px;
   }
-  
+
   .content h2 {
     font-size: 1.25rem;
     font-weight: bold;
     margin: 16px 0;
   }
-  
+
   .upload-button {
-    margin-top: 16px;
+    margin: 16px;
     background-color: #6c757d;
     color: #fff;
     border: none;
@@ -108,8 +162,32 @@ body {
     font-size: 0.875rem;
     cursor: pointer;
   }
-  
+
   .upload-button:hover {
     background-color: #5a6268;
   }
-  
+
+  /* Pagination Button Styling */
+.pagination-btn {
+  padding: 8px 15px;
+  margin: 0 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-btn:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.pagination-btn:disabled {
+  background-color: #ccc; /* Disable button style */
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background-color: #0056b3; /* Highlight active page */
+}
+
