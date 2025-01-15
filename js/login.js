@@ -26,6 +26,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
 
       if (response.ok) {
 
+        localStorage.clear();
         const token = result.token;
         localStorage.setItem('authToken', token);
 

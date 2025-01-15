@@ -1,0 +1,54 @@
+.post-row {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.post-content h2 {
+    font-size: 1.5em;
+}
+
+.post-interactions {
+    margin-top: 10px;
+}
+
+.post-interactions span {
+    margin-right: 10px;
+}
+
+.comments-section {
+    margin-top: 15px;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
+
+.delete-comment-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-comment-btn:hover {
+    background-color: darkred;
+}
+
+.pagination-btn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination-btn.active {
+    background-color: blue;
+    color: white;
+}
+
+.pagination-btn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}

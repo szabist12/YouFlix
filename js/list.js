@@ -42,6 +42,10 @@ async function loadPosts(page = 1, pageSize = 10) {
         interactionsButton.classList.add('btn');
         interactionsButton.textContent = 'Interactions';
 
+        interactionsButton.addEventListener('click', () => {
+          window.location.href = `/interaction.html?postId=${post.id}`;
+        });
+
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('btn');
         deleteButton.textContent = 'Delete';

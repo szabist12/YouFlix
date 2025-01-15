@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Interactions</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/upload.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img class="img" src="images/logo.png" alt="YouFlix" />
+      </div>
+    </header>
+
+    <div class="upload-container">
+      <!-- Display the interactions here -->
+      <div class="interactions">
+        <h2>Post Interactions</h2>
+        <div id="interactions">
+          <div>
+            <p>Views: <span id="views-count">0</span></p>
+          </div>
+          <div>
+            <p>Likes: <span id="likes-count">0</span></p>
+          </div>
+          <div>
+            <p>Dislikes: <span id="dislikes-count">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comments-section">
+      <h3>Comments</h3>
+      <!-- Comments will be dynamically loaded here -->
+      <div id="comments-container"></div>
+    </div>
+    <script src="js/interaction.js"></script>
+  </body>
+</html>
