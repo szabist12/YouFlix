@@ -28,11 +28,13 @@ body {
 
 /* Main Upload Section */
 .upload-container {
+  align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 20px;
 }
 
 .upload-form {
@@ -99,4 +101,24 @@ textarea {
 #video-preview {
   width: 100%;
   border-radius: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px 12px;
+}
+
+.upload-containers {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+  flex-direction: column;
 }

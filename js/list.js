@@ -79,6 +79,11 @@ async function loadPosts(page = 1, pageSize = 10) {
         updateButton.classList.add('btn');
         updateButton.textContent = 'Update';
 
+        // Add event listener to update button
+        updateButton.addEventListener('click', () => {
+          window.location.href = `/upload.html?postId=${post.id}`; // Navigate to upload.html with postId
+        });
+
         postButtons.appendChild(interactionsButton);
         postButtons.appendChild(deleteButton);
         postButtons.appendChild(updateButton);

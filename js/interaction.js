@@ -52,10 +52,7 @@ async function loadInteractions(postId) {
         }
       }
     );
-    console.log(dislikesResponse);
-    console.log('**************');
     const dislikesData = await dislikesResponse.json();
-    console.log(dislikesData);
     document.getElementById("dislikes-count").textContent =
       dislikesData.dislikes || 0;
   } catch (error) {
@@ -63,7 +60,7 @@ async function loadInteractions(postId) {
   }
 }
 
-// Fetch and display comments for the post
+// Fetch and display comments for the post in a table
 async function loadComments(postId) {
   try {
     // Fetch comments for the post
@@ -75,29 +72,59 @@ async function loadComments(postId) {
         }
       }
     );
-    const commentsData = await commentsResponse.json();
 
-    const commentsContainer =
-      document.getElementById("comments-container");
+    if (!commentsResponse.ok) {
+      throw new Error(`Error fetching comments: ${commentsResponse.statusText}`);
+    }
+
+    const commentsData = await commentsResponse.json();
+    const commentsContainer = document.getElementById("comments-container");
     commentsContainer.innerHTML = ""; // Clear existing comments
 
-    commentsData.forEach((comment) => {
-      const commentDiv = document.createElement("div");
-      commentDiv.classList.add("comment");
+    // Check if comments are present
+    if (commentsData.comments && commentsData.comments.length > 0) {
+      commentsData.comments.forEach((comment) => {
+        const commentRow = document.createElement("tr");
 
-      const commentText = document.createElement("p");
-      commentText.textContent = comment.text;
+        // Create a cell for the comment text
+        const commentCell = document.createElement("td");
+        commentCell.textContent = comment.comments; // Comment text
+        commentRow.appendChild(commentCell);
 
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete Comment";
-      deleteButton.classList.add("delete-btn");
-      deleteButton.onclick = () => deleteComment(comment.id, postId);
+        // Create a cell for the delete button
+        const actionCell = document.createElement("td");
 
-      commentDiv.appendChild(commentText);
-      commentDiv.appendChild(deleteButton);
+        // Create a delete button with a trash icon
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-btn");
+        deleteButton.style.backgroundColor = "red";
+        deleteButton.style.color = "white";
+        deleteButton.style.border = "none";
+        deleteButton.style.padding = "5px 10px";
+        deleteButton.style.cursor = "pointer";
 
-      commentsContainer.appendChild(commentDiv);
-    });
+        // Adding a trash icon inside the delete button (using FontAwesome)
+        const deleteIcon = document.createElement("i");
+        deleteIcon.classList.add("fas", "fa-trash"); // Using Font Awesome's trash icon
+        deleteButton.appendChild(deleteIcon);
+
+        // Attach the click event to the delete button
+        deleteButton.onclick = () => deleteComment(comment.id, postId);
+
+        actionCell.appendChild(deleteButton);
+        commentRow.appendChild(actionCell);
+
+        // Append the row to the table body
+        commentsContainer.appendChild(commentRow);
+      });
+    } else {
+      const noCommentsRow = document.createElement("tr");
+      const noCommentsCell = document.createElement("td");
+      noCommentsCell.colSpan = 2;
+      noCommentsCell.textContent = "No comments available.";
+      noCommentsRow.appendChild(noCommentsCell);
+      commentsContainer.appendChild(noCommentsRow);
+    }
   } catch (error) {
     console.error("Error loading comments:", error);
   }

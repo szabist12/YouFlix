@@ -17,28 +17,39 @@
       </div>
     </header>
 
-    <div class="upload-container">
-      <!-- Display the interactions here -->
-      <div class="interactions">
-        <h2>Post Interactions</h2>
-        <div id="interactions">
-          <div>
-            <p>Views: <span id="views-count">0</span></p>
-          </div>
-          <div>
-            <p>Likes: <span id="likes-count">0</span></p>
-          </div>
-          <div>
-            <p>Dislikes: <span id="dislikes-count">0</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="upload-containers">
+      <table id="interactions-table">
+        <thead>
+          <tr>
+            <th colspan="2">Videos Interactions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Views</td>
+            <td id="views-count">0</td>
+          </tr>
+          <tr>
+            <td>Likes</td>
+            <td id="likes-count">0</td>
+          </tr>
+          <tr>
+            <td>Dislikes</td>
+            <td id="dislikes-count">0</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <div class="comments-section">
-      <h3>Comments</h3>
-      <!-- Comments will be dynamically loaded here -->
-      <div id="comments-container"></div>
+      <table id="comments-table">
+        <thead>
+          <tr>
+            <th colspan="2">Comments</th>
+          </tr>
+        </thead>
+        <tbody id="comments-container">
+          <!-- Comments will be dynamically added here -->
+        </tbody>
+      </table>
     </div>
     <script src="js/interaction.js"></script>
   </body>
