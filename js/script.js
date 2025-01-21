@@ -44,8 +44,6 @@ async function updateVideoViews(postId) {
     const data = await response.json();
 
     if (response.ok) {
-      // Successfully updated the views
-      alert(`Views updated: ${data.views}`);
       // Update the view count in the UI (assuming you have a view count element)
       const viewCountElement = document.querySelector(`#views-count-${postId}`);
       if (viewCountElement) {

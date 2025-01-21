@@ -15,7 +15,7 @@
 
     <div class="upload-container">
       <div class="upload-form">
-        <form method="POST" enctype="multipart/form-data">
+        <form id="upload-form" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="video-file" class="upload-label">Choose Video</label>
             <input
@@ -23,7 +23,7 @@
               id="video-file"
               name="video-file"
               accept=".mp4"
-              required
+              readonly
             />
           </div>
 
@@ -57,12 +57,14 @@
               id="image-file"
               name="image-file"
               accept=".jpg , .png"
-              required
+              readonly
             />
           </div>
 
           <div class="form-group">
-            <button type="submit" class="upload-button">Upload Video</button>
+            <button id="submit-button" type="submit" class="upload-button">
+              Upload Video
+            </button>
           </div>
         </form>
       </div>

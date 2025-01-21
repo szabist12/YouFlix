@@ -109,7 +109,7 @@ async function loadComments(postId) {
         deleteButton.appendChild(deleteIcon);
 
         // Attach the click event to the delete button
-        deleteButton.onclick = () => deleteComment(comment.id, postId);
+        //deleteButton.onclick = () => deleteComment(comment.id, postId);
 
         actionCell.appendChild(deleteButton);
         commentRow.appendChild(actionCell);

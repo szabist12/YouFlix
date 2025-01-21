@@ -33,7 +33,6 @@ body {
 
 .img {
   width: 100px;
-  height: 100px;
 }
 
 /* Search Bar */
@@ -185,40 +184,46 @@ body {
 }
 
 .video-card {
-  background-color: white;
-  border-radius: 8px;
+  width: 300px; /* Set the width to 300px */
+  height: 200px; /* Set the height to 100px */
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-}
-
-.video-card:hover {
-  transform: translateY(-5px); /* Adds a hover effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .video-card img {
-  width: 100%;
-  display: block;
+  width: 100%; /* Make the thumbnail fill the card */
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Add a smooth transition for hover effect */
 }
 
 .video-card .info {
-  padding: 10px;
+  padding: 5px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Optional: darken the bottom info area */
+  color: #fff;
+  width: 100%;
 }
 
 .video-card .info h3 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0 0 5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 14px;
+  margin: 0;
 }
 
 .video-card .info p {
-  margin: 5px 0;
-  color: #555;
-  font-size: 14px;
+  margin: 0;
+  font-size: 10px;
+}
+
+.video-card:hover img {
+  transform: scale(1.1); /* Zoom the image on hover */
 }
 
 .pagination {
