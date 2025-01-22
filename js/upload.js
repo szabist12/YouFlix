@@ -1,3 +1,12 @@
+if(localStorage.getItem('authToken')==null){
+  window.location.href = 'login.html';
+}else{
+  window.onload = () => {
+    if (postId) {
+      loadPostData(postId);  // Load existing post data if postId is present
+    }
+  };
+};
 const videoFileInput = document.getElementById("video-file");
 const videoPreview = document.getElementById("video-preview");
 const uploadForm = document.getElementById("upload-form");
@@ -188,8 +197,3 @@ async function update() {
   }
 }
 
-window.onload = () => {
-  if (postId) {
-    loadPostData(postId);  // Load existing post data if postId is present
-  }
-};

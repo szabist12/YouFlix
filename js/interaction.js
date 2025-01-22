@@ -1,3 +1,8 @@
+if(localStorage.getItem('authToken')==null){
+  window.location.href = 'login.html';
+}else{
+
+
 // Initialize the page
 window.onload = function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -12,6 +17,8 @@ window.onload = function () {
   }
 };
 
+};
+
 // Fetch and display interactions (views, likes, dislikes)
 async function loadInteractions(postId) {
   try {
@@ -22,41 +29,43 @@ async function loadInteractions(postId) {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-        }
+        },
       }
     );
 
     const viewsData = await viewsResponse.json();
-    document.getElementById("views-count").textContent =
+    document.getElementById('views-count').textContent =
       viewsData.views || 0;
 
     // Fetch likes count
     const likesResponse = await fetch(
-      `http://localhost:3000/admin/post/${postId}/like`, {
+      `http://localhost:3000/admin/post/${postId}/like`,
+      {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-        }
+        },
       }
     );
     const likesData = await likesResponse.json();
-    document.getElementById("likes-count").textContent =
+    document.getElementById('likes-count').textContent =
       likesData.likes || 0;
 
     // Fetch dislikes count
     const dislikesResponse = await fetch(
-      `http://localhost:3000/admin/post/${postId}/dislike`,  {
+      `http://localhost:3000/admin/post/${postId}/dislike`,
+      {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-        }
+        },
       }
     );
     const dislikesData = await dislikesResponse.json();
-    document.getElementById("dislikes-count").textContent =
+    document.getElementById('dislikes-count').textContent =
       dislikesData.dislikes || 0;
   } catch (error) {
-    console.error("Error loading interactions data:", error);
+    console.error('Error loading interactions data:', error);
   }
 }
 
@@ -65,11 +74,12 @@ async function loadComments(postId) {
   try {
     // Fetch comments for the post
     const commentsResponse = await fetch(
-      `http://localhost:3000/admin/post/${postId}/comments`, {
+      `http://localhost:3000/admin/post/${postId}/comments`,
+      {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-        }
+        },
       }
     );
 
@@ -78,39 +88,41 @@ async function loadComments(postId) {
     }
 
     const commentsData = await commentsResponse.json();
-    const commentsContainer = document.getElementById("comments-container");
-    commentsContainer.innerHTML = ""; // Clear existing comments
+    const commentsContainer = document.getElementById('comments-container');
+    commentsContainer.innerHTML = ''; // Clear existing comments
 
     // Check if comments are present
     if (commentsData.comments && commentsData.comments.length > 0) {
       commentsData.comments.forEach((comment) => {
-        const commentRow = document.createElement("tr");
+        const commentRow = document.createElement('tr');
 
         // Create a cell for the comment text
-        const commentCell = document.createElement("td");
+        const commentCell = document.createElement('td');
+        commentCell.id = comment.id;
         commentCell.textContent = comment.comments; // Comment text
         commentRow.appendChild(commentCell);
 
         // Create a cell for the delete button
-        const actionCell = document.createElement("td");
+        const actionCell = document.createElement('td');
 
         // Create a delete button with a trash icon
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-btn");
-        deleteButton.style.backgroundColor = "red";
-        deleteButton.style.color = "white";
-        deleteButton.style.border = "none";
-        deleteButton.style.padding = "5px 10px";
-        deleteButton.style.cursor = "pointer";
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-btn');
+        deleteButton.style.backgroundColor = 'red';
+        deleteButton.style.color = 'white';
+        deleteButton.style.border = 'none';
+        deleteButton.style.padding = '5px 10px';
+        deleteButton.style.cursor = 'pointer';
 
         // Adding a trash icon inside the delete button (using FontAwesome)
-        const deleteIcon = document.createElement("i");
-        deleteIcon.classList.add("fas", "fa-trash"); // Using Font Awesome's trash icon
+        const deleteIcon = document.createElement('i');
+        deleteIcon.classList.add('fas', 'fa-trash'); // Using Font Awesome's trash icon
         deleteButton.appendChild(deleteIcon);
 
         // Attach the click event to the delete button
-        //deleteButton.onclick = () => deleteComment(comment.id, postId);
+        deleteButton.onclick = () => deleteComment(comment.id, postId);
 
+        // Append delete button to action cell
         actionCell.appendChild(deleteButton);
         commentRow.appendChild(actionCell);
 
@@ -118,14 +130,48 @@ async function loadComments(postId) {
         commentsContainer.appendChild(commentRow);
       });
     } else {
-      const noCommentsRow = document.createElement("tr");
-      const noCommentsCell = document.createElement("td");
+      const noCommentsRow = document.createElement('tr');
+      const noCommentsCell = document.createElement('td');
       noCommentsCell.colSpan = 2;
-      noCommentsCell.textContent = "No comments available.";
+      noCommentsCell.textContent = 'No comments available.';
       noCommentsRow.appendChild(noCommentsCell);
       commentsContainer.appendChild(noCommentsRow);
     }
   } catch (error) {
-    console.error("Error loading comments:", error);
+    console.error('Error loading comments:', error);
+  }
+}
+
+// Delete a comment
+async function deleteComment(commentId, postId) {
+  const confirmation = confirm('Are you sure you want to delete this comment?');
+  if (!confirmation) return; // If the user cancels, do nothing
+
+  try {
+    const response = await fetch(
+      `http://localhost:3000/admin/deletecomment/${postId}/${commentId}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    if (response.ok) {
+      // If the comment was successfully deleted, remove it from the table
+      const commentRow = document.getElementById(commentId);
+      if (commentRow) {
+        commentRow.remove();
+      }
+      alert('Comment deleted successfully');
+    } else {
+      const data = await response.json();
+      alert(data.message || 'Error deleting comment');
+    }
+  } catch (error) {
+    console.error('Error deleting comment:', error);
+    alert('An error occurred while deleting the comment');
   }
 }

@@ -1,3 +1,21 @@
+if(localStorage.getItem('authToken')==null){
+  window.location.href = 'login.html';
+}else{
+  loadPosts();
+};
+
+// Adding an event listener to the logout link
+document.getElementById('logoutLink').addEventListener('click', function(e) {
+  // Prevent the default action of the link (navigation)
+  e.preventDefault();
+
+  // Clear the local storage
+  localStorage.clear();
+
+  // Optionally, navigate to the login page after clearing the local storage
+  window.location.href = 'login.html';
+});
+
 // Fetch the posts data from the API and display it
 async function loadPosts(page = 1, pageSize = 10) {
   try {
@@ -141,4 +159,4 @@ async function loadPosts(page = 1, pageSize = 10) {
   }
 }
 
-loadPosts();
+

@@ -90,13 +90,18 @@ const loadVideos = async (page = 1, keyword = '') => {
           const viewsCount = document.createElement('p');
           viewsCount.id = `views-count-${video.id}`;
           videoLink.innerHTML = `
+          <div class="thumbnail-container">
             <img src="${video.thumbnail || 'https://via.placeholder.com/300x180'}" alt="Video Thumbnail" />
-            <div class="info">
-              <h3>${video.title}</h3>
-              <p>${video.body || 'Unknown Channel'}</p>
-              <p id="views-count-${video.id}">${video.views || '0'} views • ${timeAgoString || 'Unknown date'}</p>
+            <div class="play-icon">
+              <i class="fa fa-play"></i>
             </div>
-          `;
+          </div>
+          <div class="info">
+            <h3>${video.title}</h3>
+            <p>${video.body || 'Unknown Channel'}</p>
+            <p id="views-count-${video.id}">${video.views || '0'} views • ${timeAgoString || 'Unknown date'}</p>
+          </div>
+        `;
 
           // Add event listener to update views when clicked
           videoCard.addEventListener("click", () => {

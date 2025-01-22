@@ -212,6 +212,38 @@ body {
   width: 100%;
 }
 
+.thumbnail-container {
+  position: relative;
+  display: inline-block;
+}
+
+.thumbnail-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* This ensures the icon is perfectly centered */
+  font-size: 40px;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-container:hover .play-icon {
+  opacity: 1;
+}
+
+.thumbnail-container:hover img {
+  opacity: 0.5; /* Optional: Makes the image slightly transparent when hovering */
+}
+
 .video-card .info h3 {
   font-size: 14px;
   margin: 0;
